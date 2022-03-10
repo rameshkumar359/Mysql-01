@@ -1,0 +1,137 @@
+questions:
+1. Create tables for the above list given
+2. insert at least 5 rows of values in each table
+3. get number problems solved in codekata by combining the users
+
+answers:
+
+mysql> select * from test.task1;
++---------+----------+-----------+--------+-------+----------------+---------+---------------------------+-------------+
+| users   | codekata | attendace | topics | tasks | company_drives | mentors | student_activated_courses | couses      |
++---------+----------+-----------+--------+-------+----------------+---------+---------------------------+-------------+
+| Harish  |       45 |        85 | mysql  |    34 |              5 | Lavish  | MERN                      | python      |
+| praveen |      130 |        70 | mysql  |    40 |              7 | Lavish  | MERN                      | python      |
+| uday    |       89 |        90 | mysql  |    50 |             10 | Lavish  | MERN                      | python      |
+| vaibhav |      189 |        60 | mysql  |    32 |              4 | Anand   | MERN                      | python      |
+| Ajay    |      250 |        70 | mysql  |    40 |              7 | Anand   | MERN                      | Javascript; |
++---------+----------+-----------+--------+-------+----------------+---------+---------------------------+-------------+
+5 rows in set (0.00 sec)
+
+mysql> Q.1)1. Create tables for the above list given  ,2. insert at least 5 rows of values in each table,3. get number problems solved in codekata by combining the users
+    ->
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'Q.1)1. Create tables for the above list given  ,2. insert at least 5 rows of val' at line 1
+mysql> select users,codekata from table;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'table' at line 1
+mysql> select users,codekata from test.task1;
++---------+----------+
+| users   | codekata |
++---------+----------+
+| Harish  |       45 |
+| praveen |      130 |
+| uday    |       89 |
+| vaibhav |      189 |
+| Ajay    |      250 |
++---------+----------+
+5 rows in set (0.00 sec)
+
+
+4. display the no of company drives attended by a user
+
+answer:
+mysql> select users,company_drives from test.task1;
++---------+----------------+
+| users   | company_drives |
++---------+----------------+
+| Harish  |              5 |
+| praveen |              7 |
+| uday    |             10 |
+| vaibhav |              4 |
+| Ajay    |              7 |
++---------+----------------+
+5 rows in set (0.00 sec)
+
+5. combine and display students_activated_courses and courses for a specific user groping them based on the course
+
+mysql> select users,student_activated_courses,couses from test.task1 where couses like("python%");
++---------+---------------------------+--------+
+| users   | student_activated_courses | couses |
++---------+---------------------------+--------+
+| Harish  | MERN                      | python |
+| praveen | MERN                      | python |
+| uday    | MERN                      | python |
+| vaibhav | MERN                      | python |
++---------+---------------------------+--------+
+4 rows in set (0.00 sec)
+
+mysql> select users,student_activated_courses,couses from test.task1 where couses like("javascript%");
++-------+---------------------------+-------------+
+| users | student_activated_courses | couses      |
++-------+---------------------------+-------------+
+| Ajay  | MERN                      | Javascript; |
++-------+---------------------------+-------------+
+1 row in set (0.00 sec)
+
+6. list all the mentors
++---------+---------+
+| users   | mentors |
++---------+---------+
+| Harish  | Lavish  |
+| praveen | Lavish  |
+| uday    | Lavish  |
+| vaibhav | Anand   |
+| Ajay    | Anand   |
++---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select users from test.task1 where mentors like("Lavish");
++---------+
+| users   |
++---------+
+| Harish  |
+| praveen |
+| uday    |
++---------+
+3 rows in set (0.00 sec)
+
+mysql> select users from test.task1 where mentors like("Anand");
++---------+
+| users   |
++---------+
+| vaibhav |
+| Ajay    |
++---------+
+2 rows in set (0.00 sec)
+
+mysql> select users from test.task1 w
+
+7. list the number of students that are assigned for a mentor
++---------+---------+
+| users   | mentors |
++---------+---------+
+| Harish  | Lavish  |
+| praveen | Lavish  |
+| uday    | Lavish  |
+| vaibhav | Anand   |
+| Ajay    | Anand   |
++---------+---------+
+5 rows in set (0.00 sec)
+
+mysql> select users from test.task1 where mentors like("Lavish");
++---------+
+| users   |
++---------+
+| Harish  |
+| praveen |
+| uday    |
++---------+
+3 rows in set (0.00 sec)
+
+mysql> select users from test.task1 where mentors like("Anand");
++---------+
+| users   |
++---------+
+| vaibhav |
+| Ajay    |
++---------+
+2 rows in set (0.00 sec)
